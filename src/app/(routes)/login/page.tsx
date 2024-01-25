@@ -1,9 +1,9 @@
 import { cookies } from 'next/headers'
-import Image from 'next/image'
 import { redirect } from 'next/navigation'
 
 import { Copyright } from '@/components/copyright'
-import { ModeToggle } from '@/components/mode-toogle'
+import { Logo } from '@/components/logo'
+import { ModeToggle } from '@/components/mode-toggle'
 import {
   Card,
   CardContent,
@@ -23,16 +23,7 @@ export default async function AuthPage() {
   return (
     <div className="h-screen flex items-center">
       <div className="w-full h-full md:flex flex-col items-stretch p-10 hidden bg-muted border-l">
-        <header className="flex items-center gap-x-3">
-          <Image
-            src="/logo.svg"
-            alt="logo"
-            width={24}
-            height={24}
-            className="size-6"
-          />
-          <span className="text-xl font-semibold">Uploadfy</span>
-        </header>
+        <Logo />
         <Copyright />
       </div>
       <div className="w-full h-full relative flex items-center justify-center">
