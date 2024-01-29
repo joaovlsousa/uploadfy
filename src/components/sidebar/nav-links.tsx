@@ -4,6 +4,7 @@ import { HomeIcon, LayersIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { LogoutButton } from '@/components/logout-button'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -38,7 +39,7 @@ export function NavLinks() {
           <Link href={link.href}>
             <link.icon
               className={cn(
-                'w-4 h-4 mr-2 group-hover:text-sky-500',
+                'size-4 mr-2 group-hover:text-sky-500',
                 pathname === link.href && 'text-sky-500',
               )}
             />
@@ -46,6 +47,8 @@ export function NavLinks() {
           </Link>
         </Button>
       ))}
+
+      <LogoutButton />
     </nav>
   )
 }
