@@ -22,8 +22,8 @@ export default function Home() {
             </Title>
             <Description>Salve agora o seu mais novo projeto</Description>
           </CardHeader>
-          <CardFooter className="justify-between">
-            <Button asChild>
+          <CardFooter className="justify-between gap-x-3 md:gap-x-0">
+            <Button asChild className="text-sm px-2 md:text-base md:px-4">
               <Link href="/new">
                 <PlusCircle className="size-4 mr-2" />
                 Adicionar projeto na coleção

@@ -21,3 +21,18 @@ export const loginSchema = z
   })
 
 export type LoginSchema = z.infer<typeof loginSchema>
+
+export const projectSchema = z.object({
+  title: z.string({ required_error: 'Campo obrigatório' }),
+  description: z.string({ required_error: 'Campo obrigatório' }),
+  githubUrl: z
+    .string({ required_error: 'Campo obrigatório' })
+    .url('URL inválida'),
+  deployUrl: z
+    .string({ required_error: 'Campo obrigatório' })
+    .url('URL inválida')
+    .optional(),
+  pinned: z.boolean({ required_error: 'Campo obrigatório' }).default(false),
+})
+
+export type ProjectSchema = z.infer<typeof projectSchema>

@@ -27,8 +27,11 @@ export default async function AuthPage() {
         <Copyright />
       </div>
       <div className="w-full h-full relative flex items-center justify-center">
-        <div className="absolute top-10 right-10">
+        <div className="absolute top-6 md:top-10 right-6 md:right-10">
           <ModeToggle />
+        </div>
+        <div className="absolute top-7 left-6 md:hidden">
+          <Logo />
         </div>
         <Card className="w-full md:w-96 border-0 space-y-4 bg-background shadow-none">
           <CardHeader className="text-center">
