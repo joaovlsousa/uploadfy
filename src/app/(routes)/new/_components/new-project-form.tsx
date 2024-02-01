@@ -46,7 +46,7 @@ export function NewProjectForm() {
     if (projectId) {
       toast.success('sucesso')
 
-      router.push(`/projects/${projectId}/upload-image`)
+      router.push(`/projects/${projectId}/upload`)
     }
   }
 

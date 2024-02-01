@@ -40,7 +40,7 @@ export function NavLinks() {
             <link.icon
               className={cn(
                 'size-4 mr-2 group-hover:text-sky-500',
-                pathname === link.href && 'text-sky-500',
+                pathname.startsWith(link.href) && 'text-sky-500',
               )}
             />
             <p>{link.label}</p>

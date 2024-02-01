@@ -2,7 +2,7 @@ import { cookies } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
 
 export function middleware(req: NextRequest) {
-  const accessToken = cookies().get('access_token')
+  const accessToken = cookies().get('access_token')?.value
 
   if (!accessToken) {
     return NextResponse.redirect(new URL('/login', req.url))
@@ -12,5 +12,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/'],
+  matcher: ['/', '/projects/:path*', '/new'],
 }
