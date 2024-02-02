@@ -5,6 +5,7 @@ import { cookies } from 'next/headers'
 
 interface APIResponse {
   projects: {
+    id: string
     title: string
     description: string
     pinned: boolean
@@ -27,7 +28,7 @@ export async function getPinnedProjects(): Promise<GetPinnedProjectsReturn> {
       throw new Error('Unauthorized')
     }
 
-    const res = await api.get('/project', {
+    const res = await api.get('/project/pinned', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },

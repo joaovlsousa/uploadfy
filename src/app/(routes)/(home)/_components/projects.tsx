@@ -1,5 +1,7 @@
-import { getPinnedProjects } from '@/actions/get-pinned-projects'
 import { AlertTriangle } from 'lucide-react'
+
+import { getPinnedProjects } from '@/actions/get-pinned-projects'
+import { Project, ProjectSkeleton } from '@/components/project'
 
 export async function Projects() {
   const { data, error } = await getPinnedProjects()
@@ -17,8 +19,21 @@ export async function Projects() {
 
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-      <p>{JSON.stringify(data, null, 2)}</p>
-      <p>{JSON.stringify(error, null, 2)}</p>
+      {data?.projects.map((project) => (
+        <Project key={project.id} {...project} />
+      ))}
+    </div>
+  )
+}
+
+export function ProjectsSkeleton() {
+  return (
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+      <ProjectSkeleton />
+      <ProjectSkeleton />
+      <ProjectSkeleton />
+      <ProjectSkeleton />
+      <ProjectSkeleton />
     </div>
   )
 }

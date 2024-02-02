@@ -1,11 +1,12 @@
+import { ChevronRight, PlusCircle } from 'lucide-react'
+import Link from 'next/link'
+import { Suspense } from 'react'
+
 import { Description } from '@/components/description'
 import { Title } from '@/components/title'
 import { Button } from '@/components/ui/button'
 import { Card, CardFooter, CardHeader } from '@/components/ui/card'
-import { ChevronRight, PlusCircle } from 'lucide-react'
-import Link from 'next/link'
-import { Suspense } from 'react'
-import { Projects } from './_components/projects'
+import { Projects, ProjectsSkeleton } from './_components/projects'
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
         <Description>Bem vindo ao painel de projetos</Description>
       </header>
       <section>
-        <Card className="md:w-fit border-dotted border-foreground">
+        <Card className="md:w-fit">
           <CardHeader>
             <Title className="text-base font-medium">
               Que tal adicionar mais um projeto na sua coleção?
@@ -44,7 +45,7 @@ export default function Home() {
           Estes são os projetos em destaque no seu portfólio
         </Description>
 
-        <Suspense fallback={<p>carregando...</p>}>
+        <Suspense fallback={<ProjectsSkeleton />}>
           <Projects />
         </Suspense>
       </section>

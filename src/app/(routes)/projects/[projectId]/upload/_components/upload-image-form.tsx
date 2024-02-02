@@ -71,7 +71,7 @@ export function UploadImageForm({ accessToken }: { accessToken: string }) {
     0
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 ml-4">
+    <form onSubmit={onSubmit} className="space-y-4 md:ml-4">
       <Label
         htmlFor="file"
         className="w-full relative flex flex-col items-center justify-center aspect-video bg-transparent border rounded-md cursor-pointer overflow-hidden"
