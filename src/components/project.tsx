@@ -1,5 +1,5 @@
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
-import { CodeSquare, MousePointerSquare } from 'lucide-react'
+import { MousePointerSquare } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -44,23 +44,19 @@ export function Project({
         <Title className="text-lg">{title}</Title>
         <Description>{description}</Description>
       </CardContent>
-      <CardFooter className="gap-x-4">
+      <CardFooter className="justify-between gap-x-4">
         {deployUrl && (
-          <Button asChild variant="outline">
+          <Button asChild variant="outline" className="w-full">
             <Link href={deployUrl} target="_blank">
-              <MousePointerSquare className="size-4" />
+              <MousePointerSquare className="size-4 mr-2" />
+              Ver projeto
             </Link>
           </Button>
         )}
-        <Button asChild variant="secondary">
+        <Button asChild variant="secondary" className="w-full">
           <Link href={githubUrl} target="_blank">
-            <GitHubLogoIcon className="size-4" />
-          </Link>
-        </Button>
-        <Button asChild className="w-full">
-          <Link href={`/projects/${id}`}>
-            <CodeSquare className="size-4 mr-2" />
-            Ver projeto
+            <GitHubLogoIcon className="size-4 mr-2" />
+            Ver código
           </Link>
         </Button>
       </CardFooter>
@@ -70,11 +66,11 @@ export function Project({
 
 export function ProjectSkeleton() {
   return (
-    <div className="p-6 border rounded-md space-y-2">
+    <div className="p-6 border rounded-md space-y-3">
       <Skeleton className="aspect-video w-full" />
       <div className="space-y-2">
         <Skeleton className="w-1/2 h-4 rounded-full" />
-        <div className="space-y-1">
+        <div className="space-y-1.5">
           <Skeleton className="w-full h-3 rounded-full" />
           <Skeleton className="w-4/5 h-3 rounded-full" />
         </div>

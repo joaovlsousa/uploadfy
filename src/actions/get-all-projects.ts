@@ -15,12 +15,12 @@ interface APIResponse {
   }[]
 }
 
-interface GetPinnedProjectsReturn {
+interface GetAllProjectsReturn {
   data: APIResponse | null
   error: string | null
 }
 
-export async function getPinnedProjects(): Promise<GetPinnedProjectsReturn> {
+export async function getAllProjects(): Promise<GetAllProjectsReturn> {
   try {
     const accessToken = cookies().get('access_token')?.value
 
@@ -28,7 +28,7 @@ export async function getPinnedProjects(): Promise<GetPinnedProjectsReturn> {
       throw new Error('Unauthorized')
     }
 
-    const res = await api.get('/project/pinned', {
+    const res = await api.get('/project', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },

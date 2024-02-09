@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckCircle2, Plus } from 'lucide-react'
+import { CheckCircle2, Loader2, Plus } from 'lucide-react'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
 import { ChangeEvent, FormEvent, useState, useTransition } from 'react'
@@ -105,16 +105,22 @@ export function UploadImageForm({ accessToken }: { accessToken: string }) {
         className="invisible"
       />
 
-      <div className="flex items-center gap-x-2">
+      <div className="flex items-center gap-x-2 justify-between">
         <Progress
           value={progressUpload}
-          className="w-4/5 ease-linear transition-colors"
+          className="flex-1 ease-linear transition-colors"
           data-upload={'finish'}
+        />
+        <Loader2
+          className={cn(
+            'size-4 text-primary animate-spin hidden',
+            isSubmitting && 'block',
+          )}
         />
         <CheckCircle2
           className={cn(
-            'size-4 text-emerald-500 invisible transition-all',
-            uploadStatus === 'finish' && 'visible',
+            'size-4 text-emerald-500 hidden transition-all',
+            uploadStatus === 'finish' && 'block',
           )}
         />
       </div>

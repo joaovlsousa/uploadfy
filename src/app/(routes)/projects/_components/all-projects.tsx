@@ -1,9 +1,9 @@
-import { getPinnedProjects } from '@/actions/get-pinned-projects'
+import { getAllProjects } from '@/actions/get-all-projects'
 import { Error } from '@/components/error'
 import { Project, ProjectSkeleton } from '@/components/project'
 
-export async function Projects() {
-  const { data, error } = await getPinnedProjects()
+export async function AllProjects() {
+  const { data, error } = await getAllProjects()
 
   if (error) {
     return <Error message="Não foi possível carregar seus projetos" />
@@ -22,7 +22,7 @@ export async function Projects() {
   )
 }
 
-export function ProjectsSkeleton() {
+export function AllProjectsSkeleton() {
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
       <ProjectSkeleton />
