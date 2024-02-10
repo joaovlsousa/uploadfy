@@ -23,11 +23,20 @@ export async function createProject(
       throw new Error('Unauthorized')
     }
 
-    const res = await api.post('/project', payload, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
+    const { deployUrl, ...rest } = payload
+
+    const res = await api.post(
+      '/project',
+      {
+        deployUrl: deployUrl ?? '',
+        ...rest,
       },
-    })
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      },
+    )
 
     const { projectId } = res.data as APIResponse
 
